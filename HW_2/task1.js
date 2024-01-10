@@ -24,7 +24,9 @@ class Libriary {
   removeBook(title) {
     try {
       if (!this.#books.includes(title)) {
-        throw new Error("This book is absent in this libriary! And can`t be deleted.");
+        throw new Error(
+          "This book is absent in this libriary! And can`t be deleted."
+        );
       } else {
         this.#books.splice(this.#books.indexOf(title), 1);
         console.log(`"${title}" удален из библиотеки`);
@@ -50,28 +52,42 @@ class Libriary {
   }
   // Реализуйте конструктор, который принимает начальный список книг (массив) в качестве аргумента. Убедитесь, что предоставленный массив не содержит дубликатов; в противном случае выбрасывайте ошибку.
 
+  // constructor(list) {
+  //   try {
+  //     const array = list;
+  //     array.forEach((element1) => {
+  //       let counter = 0;
+  //       array.forEach((element2) => {
+  //         if (element1 === element2) {
+  //           counter++;
+  //         }
+  //         if (counter > 1) {
+  //           this.#books = [];
+  //           throw new Error(
+  //             `Вводимый список книг содержит дубликаты: "${element1}" Индексы: ${array.indexOf(
+  //               element1
+  //             )}, ${array.indexOf(element2)}`
+  //           );
+  //         } else {
+  //           this.#books = array;
+  //         }
+  //       });
+  //     });
+  //     console.log("Все прошло хорошо!");
+  //   } catch (error) {
+  //     console.log(error.message);
+  //   }
+  // }
   constructor(list) {
     try {
-      const array = list;
-      array.forEach((element1) => {
-        let counter = 0;
-        array.forEach((element2) => {
-          if (element1 === element2) {
-            counter++;
-          }
-          if (counter > 1) {
-            this.#books = [];
-            throw new Error(
-              `Вводимый список книг содержит дубликаты: "${element1}" Индексы: ${array.indexOf(
-                element1
-              )}, ${array.indexOf(element2)}`
-            );
-          } else {
-            this.#books = array;
-          }
-        });
-      });
-      console.log("Все прошло хорошо!");
+      const unique = new Set(list);
+      if (list.length !== unique.size) {
+        throw new Error('Вводимый список книг содержит дубликаты')
+      } else {
+        this.#books = list;
+        console.log("Библиотка инициализирована");
+      }
+
     } catch (error) {
       console.log(error.message);
     }
@@ -82,7 +98,6 @@ const listOfBooks = [
   "pikul",
   "pik",
   "pi",
-  "pi",
   "pokerHouse",
   "drom",
   "docker",
@@ -92,4 +107,5 @@ const lib = new Libriary(listOfBooks);
 lib.addBook("Приключкения Гекельберри Финна");
 lib.removeBook("pi");
 console.log(lib.hasBook("Приключкения Гекельберри Финна"));
+console.log(lib.hasBook("pi"));
 console.log(lib.getBooks());
