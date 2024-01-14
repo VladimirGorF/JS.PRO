@@ -82,26 +82,18 @@ class Libriary {
     try {
       const unique = new Set(list);
       if (list.length !== unique.size) {
-        throw new Error('Вводимый список книг содержит дубликаты')
+        throw new Error("Вводимый список книг содержит дубликаты");
       } else {
-        this.#books = list;
         console.log("Библиотка инициализирована");
+        this.#books = list;
       }
-
     } catch (error) {
       console.log(error.message);
     }
   }
 }
 
-const listOfBooks = [
-  "pikul",
-  "pik",
-  "pi",
-  "pokerHouse",
-  "drom",
-  "docker",
-];
+const listOfBooks = ["pikul", "pik", "pi", "pokerHouse", "drom", "docker"];
 const lib = new Libriary(listOfBooks);
 
 lib.addBook("Приключкения Гекельберри Финна");

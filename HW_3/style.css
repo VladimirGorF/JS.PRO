@@ -1,0 +1,44 @@
+.conteiner{
+    padding-left: 100px;
+}
+
+.review{
+    width: 400px;
+    margin-bottom: 5px;
+    border: 1px solid black;
+}
+
+.title{
+    text-shadow: #FC0 1px 0 10px;
+    color: aliceblue;
+    background-color: cadetblue;
+    cursor: pointer;
+}
+.title:hover{
+    background-color:coral
+}
+
+.descr{
+    background-color: bisque;
+    text-shadow: 1px 1px cornflowerblue;
+    
+}
+
+.add{
+    cursor: pointer;
+    transition: 0.3s;
+}
+.add:hover{
+    background-color:coral;
+    color: white;
+}
+
+.delete{
+    cursor: pointer;
+    transition: .3s;
+}
+
+.delete:hover{
+    background-color:coral;
+    color: white;
+}

@@ -53,3 +53,5 @@ console.log(account.balance); // Выводит: 700
 
 account.withdraw(100);
 console.log(account.balance); // Выводит: 600
+
+
